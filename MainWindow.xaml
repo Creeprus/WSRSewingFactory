@@ -1,0 +1,22 @@
+﻿<Window x:Class="SewingFactory.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SewingFactory"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:WSRSewingFactoryDataSet x:Key="wSRSewingFactoryDataSet"/>
+        <CollectionViewSource x:Key="userViewSource" Source="{Binding User, Source={StaticResource wSRSewingFactoryDataSet}}"/>
+    </Window.Resources>
+    <Grid Background="#FFE0A9AF" DataContext="{StaticResource userViewSource}">
+        <Label Content="Добро пожаловать" HorizontalAlignment="Left" Margin="355,49,0,0" VerticalAlignment="Top" Width="130"/>
+        <TextBox Name="Login" HorizontalAlignment="Left" Margin="355,161,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" Background="#FFFFFCD6"/>
+        <TextBox  Name="Password" HorizontalAlignment="Left" Margin="355,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" Background="#FFFFFCD6"/>
+        <Label Content="Логин" HorizontalAlignment="Left" Margin="288,157,0,0" VerticalAlignment="Top"/>
+        <Label Content="Пароль" HorizontalAlignment="Left" Margin="288,200,0,0" VerticalAlignment="Top"/>
+        <Button Content="Авторизироваться" HorizontalAlignment="Left" Margin="362,252,0,0" VerticalAlignment="Top" Background="#FFFFFCD6" Click="Button_Click"/>
+
+    </Grid>
+</Window>
